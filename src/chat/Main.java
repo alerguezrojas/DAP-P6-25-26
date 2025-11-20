@@ -4,6 +4,7 @@ import chat.mediator.ChatMediator;
 import chat.mediator.ConcreteChatMediator;
 import chat.user.ConcreteChatUser;
 import chat.ui.ChatWindow;
+import chat.ui.LogWindow;
 
 import java.util.Arrays;
 
@@ -13,8 +14,8 @@ public class Main {
         ChatMediator mediator = new ConcreteChatMediator();
 
         ConcreteChatUser u1 = new ConcreteChatUser("Alejandro", mediator);
-        ConcreteChatUser u2 = new ConcreteChatUser("Juan", mediator);
-        ConcreteChatUser u3 = new ConcreteChatUser("Carla", mediator);
+        ConcreteChatUser u2 = new ConcreteChatUser("Javier", mediator);
+        ConcreteChatUser u3 = new ConcreteChatUser("Aitor", mediator);
 
         mediator.registerUser(u1);
         mediator.registerUser(u2);
@@ -22,6 +23,10 @@ public class Main {
 
         mediator.createGroup("GrupoULL", Arrays.asList(u1, u2, u3));
 
+        // Ventana de log global
+        new LogWindow(mediator);
+
+        // Ventana por usuario
         new ChatWindow(u1);
         new ChatWindow(u2);
         new ChatWindow(u3);

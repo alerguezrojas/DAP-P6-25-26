@@ -7,7 +7,7 @@ public class ConcreteChatUser implements ChatUser {
 
     private String name;
     private ChatMediator mediator;
-    private ChatWindow ui;  // referencia a la ventana gráfica
+    private ChatWindow ui;
 
     public ConcreteChatUser(String name, ChatMediator mediator) {
         this.name = name;
@@ -28,7 +28,7 @@ public class ConcreteChatUser implements ChatUser {
         if (ui != null) {
             ui.showIncomingMessage(from, message);
         } else {
-            System.out.println("[" + name + "] Mensaje de " + from + ": " + message);
+            System.out.println("[" + name + "] " + from + ": " + message);
         }
     }
 
