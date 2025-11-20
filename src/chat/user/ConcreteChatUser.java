@@ -1,15 +1,21 @@
 package chat.user;
 
 import chat.mediator.ChatMediator;
+import chat.ui.ChatWindow;
 
 public class ConcreteChatUser implements ChatUser {
 
     private String name;
     private ChatMediator mediator;
+    private ChatWindow ui;  // referencia a la ventana gráfica
 
     public ConcreteChatUser(String name, ChatMediator mediator) {
         this.name = name;
         this.mediator = mediator;
+    }
+
+    public void setUI(ChatWindow ui) {
+        this.ui = ui;
     }
 
     @Override
@@ -19,7 +25,11 @@ public class ConcreteChatUser implements ChatUser {
 
     @Override
     public void receiveMessage(String from, String message) {
-        System.out.println("[" + name + "] Mensaje de " + from + ": " + message);
+        if (ui != null) {
+            ui.showIncomingMessage(from, message);
+        } else {
+            System.out.println("[" + name + "] Mensaje de " + from + ": " + message);
+        }
     }
 
     public void sendPrivateMessage(String toUser, String msg) {

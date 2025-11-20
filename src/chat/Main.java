@@ -3,6 +3,7 @@ package chat;
 import chat.mediator.ChatMediator;
 import chat.mediator.ConcreteChatMediator;
 import chat.user.ConcreteChatUser;
+import chat.ui.ChatWindow;
 
 import java.util.Arrays;
 
@@ -21,9 +22,8 @@ public class Main {
 
         mediator.createGroup("GrupoULL", Arrays.asList(u1, u2, u3));
 
-        u1.sendPrivateMessage("Javier", "Hola Javier, soy Alejandro.");
-        u2.sendPrivateMessage("Alejandro", "Buenas Ale, ¿qué tal?");
-
-        u3.sendGroupMessage("GrupoULL", "Buenas a todos, soy Aitor.");
+        new ChatWindow(u1);
+        new ChatWindow(u2);
+        new ChatWindow(u3);
     }
 }
