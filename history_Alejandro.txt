@@ -22,3 +22,8 @@ Javier	Javier	17:53	muy biiieeeeeen
 GrupoULL	Javier (grupo GrupoULL)	17:53	holaaaaa
 Sistema	Sistema	17:55	Javier está ahora offline
 Sistema	Sistema	17:55	Aitor está ahora offline
+Sistema	Sistema	19:03	Javier está ahora online
+Sistema	Sistema	19:03	Aitor está ahora online
+Javier	Yo → Javier	19:04	holaaaaaaaa
+Sistema	Sistema	19:04	Aitor está ahora offline
+Sistema	Sistema	19:04	Javier está ahora offline

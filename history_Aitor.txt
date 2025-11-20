@@ -15,3 +15,5 @@ Javier	Yo → Javier	17:53	eyyyy
 GrupoULL	Javier (grupo GrupoULL)	17:53	holaaaaa
 Sistema	Sistema	17:55	Javier está ahora offline
 Sistema	Sistema	17:55	Alejandro está ahora offline
+Sistema	Sistema	19:04	Alejandro está ahora offline
+Sistema	Sistema	19:04	Javier está ahora offline

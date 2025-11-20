@@ -18,3 +18,7 @@ Aitor	Aitor	17:53	eyyyy
 GrupoULL	Yo → Grupo GrupoULL	17:53	holaaaaa
 Sistema	Sistema	17:55	Alejandro está ahora offline
 Sistema	Sistema	17:55	Aitor está ahora offline
+Sistema	Sistema	19:03	Aitor está ahora online
+Alejandro	Alejandro	19:04	holaaaaaaaa
+Sistema	Sistema	19:04	Alejandro está ahora offline
+Sistema	Sistema	19:04	Aitor está ahora offline
