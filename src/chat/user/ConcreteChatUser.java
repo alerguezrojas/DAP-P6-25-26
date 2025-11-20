@@ -25,4 +25,12 @@ public class ConcreteChatUser implements ChatUser {
     public void sendPrivateMessage(String toUser, String msg) {
         mediator.sendPrivateMessage(name, toUser, msg);
     }
+
+    public void sendGroupMessage(String groupName, String msg) {
+        mediator.sendGroupMessage(name, groupName, msg);
+    }
+
+    public ChatMediator getMediator() {
+        return mediator;
+    }
 }
