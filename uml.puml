@@ -1,0 +1,113 @@
+@startuml
+class chat.ui.ChatWindow {
+- ConcreteChatUser user
+- ChatMediator mediator
+- JPanel panelChat
+- JScrollPane scrollPane
+- JTextField fieldMessage
+- JButton btnDestino
+- JLabel lblDestino
+- JLabel lblEstado
+- String destinoSeleccionado
+- boolean hasUnread
+- String baseTitle
+- JLabel lblTyping
+- Timer typingTimer
+- Map<String,List<MessageRecord>> conversaciones
+- void enviarNotificacionEscribiendo()
++ void showTypingIndicator(String)
+- void seleccionarDestino()
+- void enviarMensaje()
++ void showIncomingMessage(String,String)
+- void limpiarNotificaciones()
+- void addMessageToConversation(String,String,String,String,boolean)
+- void mostrarConversacion(String)
+- void renderMessageBubble(String,String,String)
+- String escapeHtml(String)
+- File getHistoryFile()
+- void appendHistoryToFile(String,String,String,String)
+- void loadHistoryFromFile()
+}
+
+
+class chat.ui.ChatWindow$MessageRecord {
+~ String convKey
+~ String from
+~ String msg
+~ String time
+}
+
+interface chat.mediator.ChatMediator {
+~ void registerUser(ChatUser)
+~ void createGroup(String,List<ChatUser>)
+~ void sendPrivateMessage(String,String,String)
+~ void sendGroupMessage(String,String,String)
+~ List<String> getConnectedUserNames()
+~ List<String> getGroupNames()
+~ void setUserOnline(String,boolean)
+~ boolean isUserOnline(String)
+~ Map<String,Boolean> getUserStatus()
+~ List<String> getLog()
+~ void notifyTyping(String,String)
+}
+
+class chat.mediator.ConcreteChatMediator {
+- Map<String,ChatUser> users
+- Map<String,List<ChatUser>> groups
+- Map<String,Boolean> onlineStatus
+- List<String> log
+- void logEvent(String)
++ void registerUser(ChatUser)
++ void createGroup(String,List<ChatUser>)
++ void sendPrivateMessage(String,String,String)
++ void sendGroupMessage(String,String,String)
++ List<String> getConnectedUserNames()
++ List<String> getGroupNames()
++ void setUserOnline(String,boolean)
++ boolean isUserOnline(String)
++ Map<String,Boolean> getUserStatus()
++ List<String> getLog()
++ void notifyTyping(String,String)
+}
+
+
+class chat.ui.LogWindow {
+- ChatMediator mediator
+- JTextArea areaLog
+- Timer timer
+- void refreshLog()
+}
+
+
+class chat.Main {
++ {static} void main(String[])
+}
+
+class chat.user.ConcreteChatUser {
+- String name
+- ChatMediator mediator
+- ChatWindow ui
++ void setUI(ChatWindow)
++ String getName()
++ void receiveMessage(String,String)
++ void receiveTypingNotification(String)
++ void sendPrivateMessage(String,String)
++ void sendGroupMessage(String,String)
++ ChatMediator getMediator()
+}
+
+
+interface chat.user.ChatUser {
+~ String getName()
+~ void receiveMessage(String,String)
+~ void receiveTypingNotification(String)
+}
+
+
+
+chat.ui.JFrame <|-- chat.ui.ChatWindow
+chat.ui.ChatWindow +.. chat.ui.ChatWindow$MessageRecord
+chat.mediator.ChatMediator <|.. chat.mediator.ConcreteChatMediator
+chat.ui.JFrame <|-- chat.ui.LogWindow
+chat.user.ChatUser <|.. chat.user.ConcreteChatUser
+@enduml
