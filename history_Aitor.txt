@@ -1,0 +1,17 @@
+GrupoULL	Yo → Grupo GrupoULL	17:46	HOLA GRUPO
+GrupoULL	Javier (grupo GrupoULL)	17:46	HOLA PIBES
+GrupoULL	Alejandro (grupo GrupoULL)	17:46	QUE TAL FUE EL EXAMEN?
+GrupoULL	Javier (grupo GrupoULL)	17:47	MUY BIEN, SAQUÉ UN 9
+GrupoULL	Yo → Grupo GrupoULL	17:47	CHIQUITA MÁQUINA, FELICIDADEES
+GrupoULL	Alejandro (grupo GrupoULL)	17:47	QUE GRANDEEE
+Alejandro	Alejandro	17:47	HOLA AITORR
+Alejandro	Yo → Alejandro	17:47	que tal como va todo
+Alejandro	Alejandro	17:48	todo bien y tu
+Alejandro	Yo → Alejandro	17:48	muy bien graciaaas
+Sistema	Sistema	17:48	Alejandro está ahora offline
+Sistema	Sistema	17:48	Javier está ahora offline
+Javier	Javier	17:53	que pasa aitooor que tal
+Javier	Yo → Javier	17:53	eyyyy
+GrupoULL	Javier (grupo GrupoULL)	17:53	holaaaaa
+Sistema	Sistema	17:55	Javier está ahora offline
+Sistema	Sistema	17:55	Alejandro está ahora offline

@@ -1,0 +1,24 @@
+Sistema	Sistema	17:44	Javier está ahora online
+Sistema	Sistema	17:44	Aitor está ahora online
+Javier	Yo → Javier	17:45	hola me llamo alejandro que ta estas
+Javier	Javier	17:45	hola tio que tal va todo
+Javier	Yo → Javier	17:46	muy bien gracias
+GrupoULL	Aitor (grupo GrupoULL)	17:46	HOLA GRUPO
+GrupoULL	Javier (grupo GrupoULL)	17:46	HOLA PIBES
+GrupoULL	Yo → Grupo GrupoULL	17:46	QUE TAL FUE EL EXAMEN?
+GrupoULL	Javier (grupo GrupoULL)	17:47	MUY BIEN, SAQUÉ UN 9
+GrupoULL	Aitor (grupo GrupoULL)	17:47	CHIQUITA MÁQUINA, FELICIDADEES
+GrupoULL	Yo → Grupo GrupoULL	17:47	QUE GRANDEEE
+Aitor	Yo → Aitor	17:47	HOLA AITORR
+Aitor	Aitor	17:47	que tal como va todo
+Aitor	Yo → Aitor	17:48	todo bien y tu
+Aitor	Aitor	17:48	muy bien graciaaas
+Sistema	Sistema	17:48	Javier está ahora offline
+Sistema	Sistema	17:48	Aitor está ahora offline
+Sistema	Sistema	17:52	Javier está ahora online
+Sistema	Sistema	17:52	Aitor está ahora online
+Javier	Yo → Javier	17:53	hola tio que ta va todoo
+Javier	Javier	17:53	muy biiieeeeeen
+GrupoULL	Javier (grupo GrupoULL)	17:53	holaaaaa
+Sistema	Sistema	17:55	Javier está ahora offline
+Sistema	Sistema	17:55	Aitor está ahora offline
