@@ -1,23 +1,29 @@
 package chat.ui;
 
+import chat.mediator.ChatMediator;
 import chat.user.ConcreteChatUser;
 
 import javax.swing.*;
 import java.awt.*;
+import java.util.ArrayList;
+import java.util.List;
 
 public class ChatWindow extends JFrame {
 
     private ConcreteChatUser user;
-    private ChatController controller;
+    private ChatMediator mediator;
 
     private JTextArea areaChat;
     private JTextField fieldMessage;
-    private JComboBox<String> comboUsuarios;
-    private JComboBox<String> comboGrupos;
+
+    private JButton btnDestino;
+    private JLabel lblDestino;
+
+    private String destinoSeleccionado = null;   // destino (usuario o grupo)
 
     public ChatWindow(ConcreteChatUser user) {
         this.user = user;
-        this.controller = new ChatController(user);
+        this.mediator = user.getMediator();
         user.setUI(this);
 
         setTitle("Chat - Usuario: " + user.getName());
@@ -25,56 +31,97 @@ public class ChatWindow extends JFrame {
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setLayout(new BorderLayout());
 
-        // ==== PANEL SUPERIOR ====
-        JPanel panelNorth = new JPanel(new GridLayout(2, 2));
+        // ======== PANEL NORTE ========
+        JPanel panelNorth = new JPanel(new GridLayout(2, 1));
 
-        comboUsuarios = new JComboBox<>();
-        comboGrupos = new JComboBox<>();
+        btnDestino = new JButton("Seleccionar destino");
+        lblDestino = new JLabel("Destino actual: — Ninguno —");
 
-        refreshLists();
+        btnDestino.addActionListener(e -> seleccionarDestino());
 
-        panelNorth.add(new JLabel("Usuarios:"));
-        panelNorth.add(comboUsuarios);
-        panelNorth.add(new JLabel("Grupos:"));
-        panelNorth.add(comboGrupos);
-
+        panelNorth.add(btnDestino);
+        panelNorth.add(lblDestino);
         add(panelNorth, BorderLayout.NORTH);
 
-        // ==== PANEL CENTRAL ====
+        // ======== ÁREA DE CHAT ========
         areaChat = new JTextArea();
         areaChat.setEditable(false);
         areaChat.setFont(new Font("Arial", Font.PLAIN, 14));
         add(new JScrollPane(areaChat), BorderLayout.CENTER);
 
-        // ==== PANEL INFERIOR ====
+        // ======== PANEL DE ENVÍO ========
         JPanel panelSouth = new JPanel(new BorderLayout());
         fieldMessage = new JTextField();
-        JButton btnSend = new JButton("Enviar");
+        JButton btnEnviar = new JButton("Enviar");
 
-        btnSend.addActionListener(e -> sendMessage());
+        btnEnviar.addActionListener(e -> enviarMensaje());
 
         panelSouth.add(fieldMessage, BorderLayout.CENTER);
-        panelSouth.add(btnSend, BorderLayout.EAST);
+        panelSouth.add(btnEnviar, BorderLayout.EAST);
+
         add(panelSouth, BorderLayout.SOUTH);
 
         setVisible(true);
     }
 
-    private void sendMessage() {
+    // ======================================
+    // SELECCIÓN DE DESTINO (usuarios y grupos)
+    // ======================================
+    private void seleccionarDestino() {
+
+        List<String> opciones = new ArrayList<>();
+
+        // Agregar usuarios excepto yo mismo
+        for (String u : mediator.getConnectedUserNames()) {
+            if (!u.equals(user.getName()))
+                opciones.add(u);
+        }
+
+        // Agregar grupos
+        opciones.addAll(mediator.getGroupNames());
+
+        String[] arrOpciones = opciones.toArray(new String[0]);
+
+        String seleccionado = (String) JOptionPane.showInputDialog(
+                this,
+                "Selecciona un usuario o grupo:",
+                "Elegir destino",
+                JOptionPane.PLAIN_MESSAGE,
+                null,
+                arrOpciones,
+                null
+        );
+
+        if (seleccionado != null) {
+            destinoSeleccionado = seleccionado;
+            lblDestino.setText("Destino actual: " + destinoSeleccionado);
+        }
+    }
+
+
+    // ============================
+    // ENVÍO DE MENSAJE
+    // ============================
+    private void enviarMensaje() {
+        if (destinoSeleccionado == null) {
+            JOptionPane.showMessageDialog(this,
+                    "Debes seleccionar un destino primero.",
+                    "Aviso",
+                    JOptionPane.WARNING_MESSAGE);
+            return;
+        }
+
         String msg = fieldMessage.getText().trim();
         if (msg.isEmpty()) return;
 
-        String selectedUser = (String) comboUsuarios.getSelectedItem();
-        String selectedGroup = (String) comboGrupos.getSelectedItem();
+        // es grupo o es usuario?
+        if (mediator.getGroupNames().contains(destinoSeleccionado)) {
+            mediator.sendGroupMessage(user.getName(), destinoSeleccionado, msg);
+            showIncomingMessage("Yo → Grupo " + destinoSeleccionado, msg);
 
-        if (selectedUser != null) {
-            controller.sendPrivate(selectedUser, msg);
-            showIncomingMessage("Yo → " + selectedUser, msg);
-        }
-
-        if (selectedGroup != null) {
-            controller.sendGroup(selectedGroup, msg);
-            showIncomingMessage("Yo → Grupo " + selectedGroup, msg);
+        } else { // es usuario
+            mediator.sendPrivateMessage(user.getName(), destinoSeleccionado, msg);
+            showIncomingMessage("Yo → " + destinoSeleccionado, msg);
         }
 
         fieldMessage.setText("");
@@ -82,16 +129,5 @@ public class ChatWindow extends JFrame {
 
     public void showIncomingMessage(String from, String msg) {
         areaChat.append(from + ": " + msg + "\n");
-    }
-
-    public void refreshLists() {
-        comboUsuarios.removeAllItems();
-        comboGrupos.removeAllItems();
-
-        controller.getMediator().getConnectedUserNames()
-                .forEach(comboUsuarios::addItem);
-
-        controller.getMediator().getGroupNames()
-                .forEach(comboGrupos::addItem);
     }
 }
