@@ -26,4 +26,7 @@ public interface ChatMediator {
 
     // Log global
     List<String> getLog();
+
+    // Notificación de “está escribiendo…”
+    void notifyTyping(String from, String toOrGroup);
 }

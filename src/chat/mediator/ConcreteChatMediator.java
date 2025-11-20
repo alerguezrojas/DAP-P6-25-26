@@ -113,4 +113,27 @@ public class ConcreteChatMediator implements ChatMediator {
     public List<String> getLog() {
         return new ArrayList<>(log);
     }
+
+    // =======================
+    // Notificación “está escribiendo…”
+    // =======================
+    @Override
+    public void notifyTyping(String from, String toOrGroup) {
+
+        // Si es grupo
+        if (groups.containsKey(toOrGroup)) {
+            for (ChatUser u : groups.get(toOrGroup)) {
+                if (!u.getName().equals(from)) {
+                    u.receiveTypingNotification(from);
+                }
+            }
+            return;
+        }
+
+        // Si es usuario individual
+        ChatUser dest = users.get(toOrGroup);
+        if (dest != null && !dest.getName().equals(from)) {
+            dest.receiveTypingNotification(from);
+        }
+    }
 }

@@ -32,6 +32,13 @@ public class ConcreteChatUser implements ChatUser {
         }
     }
 
+    @Override
+    public void receiveTypingNotification(String from) {
+        if (ui != null) {
+            ui.showTypingIndicator(from);
+        }
+    }
+
     public void sendPrivateMessage(String toUser, String msg) {
         mediator.sendPrivateMessage(name, toUser, msg);
     }
