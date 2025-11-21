@@ -22,3 +22,34 @@ Sistema	Sistema	19:03	Aitor está ahora online
 Alejandro	Alejandro	19:04	holaaaaaaaa
 Sistema	Sistema	19:04	Alejandro está ahora offline
 Sistema	Sistema	19:04	Aitor está ahora offline
+Sistema	Sistema	23:17	Aitor está ahora online
+GrupoULL	Alejandro (grupo GrupoULL)	23:18	HOLA CHICOS SOY ALE
+Alejandro	Alejandro	23:18	HOLAAA
+Alejandro	Alejandro	23:19	HOLAAA ME LLAMO ALEEEEE
+GrupoULL	Yo → Grupo GrupoULL	23:19	PROBANDOOO
+GrupoULL	Aitor (grupo GrupoULL)	23:21	HOLA CHICOS QUE TAL VA TODO
+GrupoULL	Alejandro (grupo GrupoULL)	23:21	MUY BIEN
+GrupoULL	Yo → Grupo GrupoULL	23:21	GENIAL
+Sistema	Sistema	23:27	Alejandro está ahora offline
+Sistema	Sistema	23:28	Aitor está ahora offline
+Sistema	Sistema	08:56	Aitor está ahora online
+Sistema	Sistema	08:59	Aitor está ahora online
+Alejandro	Alejandro	08:59	holaaa
+GrupoULL	Aitor (grupo GrupoULL)	08:59	hello
+Sistema	Sistema	09:00	Alejandro está ahora offline
+Sistema	Sistema	09:00	Aitor está ahora offline
+Sistema	Sistema	09:01	Aitor está ahora online
+Sistema	Sistema	09:01	Alejandro está ahora offline
+Sistema	Sistema	09:02	Aitor está ahora offline
+Sistema	Sistema	09:02	Aitor está ahora online
+Alejandro	Alejandro	09:02	hola
+Aitor	Aitor	09:03	que tal va todo
+GrupoULL	Aitor (grupo GrupoULL)	09:03	que tal
+Sistema	Sistema	09:03	Alejandro está ahora offline
+Sistema	Sistema	09:03	Aitor está ahora offline
+Sistema	Sistema	09:04	Aitor está ahora online
+Alejandro	Alejandro	09:04	holaaaaaaaaaaaaa
+Aitor	Aitor	09:04	hola
+GrupoULL	Aitor (grupo GrupoULL)	09:05	holaaa
+Sistema	Sistema	09:06	Alejandro está ahora offline
+Sistema	Sistema	09:06	Aitor está ahora offline
